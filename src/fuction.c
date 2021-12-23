@@ -4,6 +4,7 @@ int functions(c_list *comands, char **argv, fl_list *fl) {
     char *a;
     a = argv[1];
     if(comands->cd) {
+        cdf(fl, argv);
         return 0;
     }
 

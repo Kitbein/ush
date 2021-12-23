@@ -12,16 +12,16 @@ int cheking(c_list *cum, char *comands) {
     else if (mx_strcmp(comands, "cd") == 0) {
         cum->cd = true;
     }
-     else if (mx_strcmp(comands, "pwd") == 0) {
+    else if (mx_strcmp(comands, "pwd") == 0) {
         cum->pwd = true;
     }
-     else if (mx_strcmp(comands, "echo") == 0) {
+    else if (mx_strcmp(comands, "echo") == 0) {
         cum->echo = true;
     }
-     else if (mx_strcmp(comands, "which") == 0) {
+    else if (mx_strcmp(comands, "which") == 0) {
         cum->which = true;
     }
-     else if (mx_strcmp(comands, "env") == 0) {
+    else if (mx_strcmp(comands, "env") == 0) {
         cum->env = true;
     }
     return 0;
@@ -42,26 +42,25 @@ int checkflags(fl_list *fl, c_list *cum, char *arg) {
     fl->echo_E = false;
     fl->pwd_L = false;
     fl->pwd_P = false;
-
-    if (!arg || arg[0] != '-') {
-        return 0;
-    }
-    else if (cum->cd) {
-        for (int i = 1; i <= mx_strlen(arg) - 1; i++) {
-            if (arg[i] == 's') {
-                fl->cd_s = true;
-            }
-            else if (arg[i] == 'P') {
-                fl->cd_P = true;
-            }
-            else if (arg[i] =='a') {
-                fl->cd_a = true;
-            }
-            else  {
-                mx_printerr("cd: bad option: -");
-                write(STDERR_FILENO, &arg[i], 1);
-                mx_printerr("\n");
-                return -1;
+     
+    if (cum->cd == true) {
+        if (arg[0] == '-') {
+            for (int i = 1; arg[i]; i++) {
+                if (arg[i] == 's') {
+                    fl->cd_s = true;
+                }
+                else if (arg[i] == 'P') {
+                    fl->cd_P = true;
+                }
+                else if (arg[i] == 'a') {
+                    fl->cd_a = true;
+                }
+                else  {
+                    mx_printerr("cd: bad option: -");
+                    write(STDERR_FILENO, &arg[i], 1);
+                    mx_printerr("\n");
+                    return -1;
+                }
             }
         }
     }

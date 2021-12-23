@@ -5,7 +5,6 @@ int pwdf(fl_list *fl) {
     char P_Name;
     P_Name = *getwd (pname);
     char *rp = realpath(getenv("PWD"), pname);
-
     if (P_Name == 0) {
         return 0;
     }

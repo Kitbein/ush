@@ -38,16 +38,19 @@ void danilsoscka() {
             }
             cheking(com, argv[0]);
             num = checkflags(flag, com, argv[1]);
+             if (num == -2) {
+                mx_printstr("fhhh");
+                break;
+            }
             if (num == -1) {
                 break;
             }
-            if (argv[0] != NULL && mx_strcmp(argv[0], "exit") == 0) {
+            else if (argv[0] != NULL && mx_strcmp(argv[0], "exit") == 0) {
                 p = false;
                 break;
             }
             functions(com, argv, flag);
             break;
-
         }
     }
 }

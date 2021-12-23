@@ -1,7 +1,6 @@
 #ifndef USH_H
 #define USH_H
 
-
 #include "../libmx/inc/libmx.h"
 
 #include <stdio.h>
@@ -49,5 +48,6 @@ int cheking(c_list *cum, char *comands);
 int functions(c_list *comands, char **argv, fl_list *fl);
 void danilsoscka();
 int pwdf(fl_list *fl);
+int cdf(fl_list *fl, char **argv);
 
 #endif
