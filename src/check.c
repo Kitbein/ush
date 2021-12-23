@@ -42,18 +42,16 @@ int checkflags(fl_list *fl, c_list *cum, char *arg) {
     fl->echo_E = false;
     fl->pwd_L = false;
     fl->pwd_P = false;
+    fl->cd_lm = false;
      
     if (cum->cd == true) {
-        if (arg[0] == '-') {
+        if (arg[0] == '-' || arg[0] == '~' ) {
             for (int i = 1; arg[i]; i++) {
                 if (arg[i] == 's') {
                     fl->cd_s = true;
                 }
                 else if (arg[i] == 'P') {
                     fl->cd_P = true;
-                }
-                else if (arg[i] == 'a') {
-                    fl->cd_a = true;
                 }
                 else  {
                     mx_printerr("cd: bad option: -");

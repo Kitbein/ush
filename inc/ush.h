@@ -34,6 +34,7 @@ typedef struct flags_list {
     bool cd_s;
     bool cd_P;
     bool cd_a;
+    bool cd_lm;
     bool pwd_L;
     bool pwd_P;
     bool which_a;
