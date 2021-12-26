@@ -20,7 +20,7 @@ char* read_line() {
 extern char ** environ;
 
 void danilsoscka() {
-    int num;
+    int num = 0;
     c_list *com = NULL;
     fl_list *flag = NULL;
     com = (c_list *)(malloc(sizeof(c_list)));
@@ -28,6 +28,7 @@ void danilsoscka() {
     char *str = NULL;
     char **argv = NULL;
     char p = true;
+    
     while (p) {
         mx_printstr("u$h> ");
         while (true) {
@@ -37,10 +38,8 @@ void danilsoscka() {
                 break;
             }
             cheking(com, argv[0]);
-            num = checkflags(flag, com, argv[1]);
-             if (num == -2) {
-                mx_printstr("fhhh");
-                break;
+            if (argv[1] != NULL) {
+                num = checkflags(flag, com, argv[1]);
             }
             if (num == -1) {
                 break;

@@ -1,6 +1,8 @@
 #ifndef USH_H
 #define USH_H
 
+#define MAXDIR 1024
+
 #include "../libmx/inc/libmx.h"
 
 #include <stdio.h>

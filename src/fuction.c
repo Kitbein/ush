@@ -1,26 +1,20 @@
 #include "../inc/ush.h" 
 
 int functions(c_list *comands, char **argv, fl_list *fl) {
-    char *a;
-    a = argv[1];
     if(comands->cd) {
         cdf(fl, argv);
         return 0;
     }
-
-    if(comands->echo) {
+    else if(comands->echo) {
         return 0;
     }
-
-    if(comands->env) {
+    else if(comands->env) {
         return 0;
     }
-
-    if(comands->which) {
+    else if(comands->which) {
         return 0;
     }
-
-    if(comands->pwd) {
+    else if(comands->pwd) {
         pwdf(fl);
         return 0;
     }

@@ -3,18 +3,18 @@
 int cdf(fl_list *fl, char **argv) { 
     char hname[PATH_MAX];
     char *mh;
-    if (fl->cd_P || mx_strcmp(argv[1], "~") == 0)
+    if (argv[1] == NULL) {
+        chdir(getenv("HOME"));
+        setenv("OLDPWD", "PWD", 1);
+        setenv("PWD", getenv("HOME"), 1);
+    }
+    else if (fl->cd_P || mx_strcmp(argv[1], "~") == 0)
     {
         mh = realpath(getenv("HOME"), hname);
         chdir(mh);
     }   
     else if (fl->cd_s) {
-        mh = realpath(getenv(argv[1]), hname)
-        int nv = readlink(argv[1], sizeof(hname)-1);
-        if (nv == -1) {
-            chdir(mh);
-            
-        }
+        
     }
     else if (mx_strcmp(argv[1], "-") == 0) {
         mh = realpath(getenv("OLDPWD"), hname);

@@ -2,10 +2,10 @@
 
 int cheking(c_list *cum, char *comands) {
     cum->cd = false;
-    cum->pwd = false;
     cum->echo = false;
     cum->which = false;
     cum->env = false;
+    cum->pwd = false;
     if (!comands) {
         return 0;
     }
@@ -42,7 +42,6 @@ int checkflags(fl_list *fl, c_list *cum, char *arg) {
     fl->echo_E = false;
     fl->pwd_L = false;
     fl->pwd_P = false;
-    fl->cd_lm = false;
      
     if (cum->cd == true) {
         if (arg[0] == '-' || arg[0] == '~' ) {
