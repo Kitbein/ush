@@ -2,23 +2,23 @@
 
 int cdf(fl_list *fl, char **argv) { 
     char hname[PATH_MAX];
-    char *mh;
-    if (argv[1] == NULL) {
+    char *mv;
+    if (argv[1] == NULL || mx_strcmp(argv[1], "~") == 0) {
         chdir(getenv("HOME"));
         setenv("OLDPWD", "PWD", 1);
         setenv("PWD", getenv("HOME"), 1);
     }
-    else if (fl->cd_P || mx_strcmp(argv[1], "~") == 0)
+    else if (fl->cd_P)
     {
-        mh = realpath(getenv("HOME"), hname);
-        chdir(mh);
+        mv = realpath(getenv("HOME"), hname);
+        chdir(mv);
     }   
     else if (fl->cd_s) {
         
     }
     else if (mx_strcmp(argv[1], "-") == 0) {
-        mh = realpath(getenv("OLDPWD"), hname);
-        chdir(mh);
+        mv = realpath(getenv("OLDPWD"), hname);
+        chdir(mv);
     }
     else {
         DIR *mh;

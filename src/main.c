@@ -17,7 +17,6 @@ char* read_line() {
     }
     return buf;
 }
-extern char ** environ;
 
 void danilsoscka() {
     int num = 0;
@@ -27,8 +26,7 @@ void danilsoscka() {
     flag = (fl_list *)(malloc(sizeof(fl_list)));
     char *str = NULL;
     char **argv = NULL;
-    char p = true;
-    
+    char p = true;  
     while (p) {
         mx_printstr("u$h> ");
         while (true) {
@@ -54,11 +52,7 @@ void danilsoscka() {
     }
 }
 
-int main(int argc, char **argv ) {
-    int b = 0;
-    b = argc;
-    char *a;
-    a = argv[1]; 
+int main() {
     danilsoscka();
     return 0;
 }
