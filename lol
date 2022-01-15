@@ -1,1 +1,0 @@
-/Users/aserhiienk/marathon_2/ush/inc

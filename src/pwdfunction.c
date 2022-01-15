@@ -1,25 +1,27 @@
 #include "../inc/ush.h" 
 
-int pwdf(fl_list *fl) {
+int pwdf(fl_list *fl, char **argv) {
+    setenv("cod_er", "0", 1);
     char pname[PATH_MAX];
-    char *P_Name;
-    P_Name = getwd(pname);
-    char *L_Name;
-    L_Name = getenv("PWD");
-    L_Name = realpath(L_Name, NULL);
-    if (P_Name == NULL) {
-        return 0;
+    bool flag = fl->pwd_P;
+    flag = true;
+    if (argv[1] != NULL) {
+        if (argv[1][0] != '-') {
+            setenv("cod_er", "1", 1);
+            mx_printstr("pwd: too many arguments\n");
+        }
     }
     else if (fl->pwd_L) {
-        mx_printstr(L_Name);
+        mx_printstr(getenv("PWD"));
         mx_printchar('\n');
     }
     else if (fl->pwd_P) {
-        mx_printstr(pname); 
+       char *res = realpath(getenv("PWD"), pname);
+        mx_printstr(res);
         mx_printchar('\n');
     }
     else {
-        mx_printstr(L_Name);
+        mx_printstr(getenv("PWD"));
         mx_printchar('\n');
     }
     return 0;

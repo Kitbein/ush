@@ -1,6 +1,7 @@
 #ifndef USH_H
 #define USH_H
 
+#define BUFFER_LEN 1024
 #define MAXDIR 1024
 
 #include "../libmx/inc/libmx.h"
@@ -50,7 +51,8 @@ int checkflags(fl_list *fl, c_list *cum, char *arg);
 int cheking(c_list *cum, char *comands);
 int functions(c_list *comands, char **argv, fl_list *fl);
 void danilsoscka();
-int pwdf(fl_list *fl);
-int cdf(fl_list *fl, char **argv);
-
+int pwdf(fl_list *fl, char **argv);
+void ser(char *envp[], char *dir, char *command);
+void reflect(int m, int size, char *doroga);
+void cd(char *argv[], char *envp[]);
 #endif

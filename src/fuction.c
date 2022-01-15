@@ -1,8 +1,9 @@
 #include "../inc/ush.h" 
 
 int functions(c_list *comands, char **argv, fl_list *fl) {
+    extern char **environ;
     if(comands->cd) {
-        cdf(fl, argv);
+        cd(argv, environ);
         return 0;
     }
     else if(comands->echo) {
@@ -15,7 +16,7 @@ int functions(c_list *comands, char **argv, fl_list *fl) {
         return 0;
     }
     else if(comands->pwd) {
-        pwdf(fl);
+        pwdf(fl, argv);
         return 0;
     }
     else {
